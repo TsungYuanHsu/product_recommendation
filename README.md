@@ -3,10 +3,16 @@
 
 ## 🌟 Highlights
 From this project "Product recommendation", the highlights are addressed as:
-- Data visualization to explain dataset
-- Efficiency improvement of feature extraction by 88% from VGG16 model to parallel processing/ MobileNetV2 model
-- Utilize cosine similiarity on feature similarity analysis
-- Output MobileNetV2/ cosine similarity as numpy to shorten time of running repeatedly
+- EDA
+  - Most of categories are apparel, accessories, and footwear
+  - Footwear: More male products than females products.
+  - Personal care/ Accessories: More female products than male products.
+  - Products in summer season occupy big portion of dataset
+  - Topwear and shoes are the main subcategory
+  - Most of products in the dataset are from 2011 and 2012
+- Choose MobileNetV2 as CNN model than VGG16 for friendly computation. (Run time drop from 110 mins to 18 mins)
+- Batch loading is applied
+- Cosine similarity to discover similar product
 - Apply hard filter "subCategory" to increase recommendation performance
 - Recommendation function call-out
 
@@ -42,9 +48,13 @@ To be able to recommend the product with similar features, we will need the foll
 - Import libraries
 - Import dataset
 - Inspect/preprocess the dataset
-- Load the image
-- MobileNetV2 (since VGG16 is a heavy CNN)
-- Load training data after modeling from numpy
-- Similarity analysis to judge similarity between product
-  - Cosine similarity
+- Tensorflow way
+  - Load the image
+  - MobileNetV2 (since VGG16 is a heavy CNN)
+  - Load training data after modeling from numpy
+  - Similarity analysis - Cosine similarity
+- Pytorch way
+  - Load the image
+  - MobileNetV2 for feature extraction
+  - Similarity analysis - Cosine similarity
 - Function to recommend similar products from input product
